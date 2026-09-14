@@ -1,0 +1,17 @@
+name: AI Shorts Machine
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 14 * * *"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Run AI Shorts Machine
+        run: python main.py
