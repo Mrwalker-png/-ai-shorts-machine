@@ -1,17 +1,11 @@
-name: AI Shorts Machine
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 14 * * *"
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
     steps:
       - name: Get code
         uses: actions/checkout@v4
 
+      - name: Install requests
+        run: pip install requests
+
       - name: Run AI Shorts Machine
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python main.py
