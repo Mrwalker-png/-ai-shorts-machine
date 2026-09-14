@@ -32,5 +32,8 @@ response = requests.post(
 response.raise_for_status()
 
 result = response.json()["choices"][0]["message"]["content"]
+with open("script.txt", "w", encoding="utf-8") as f:
+    f.write(result)
 
 print(result)
+
